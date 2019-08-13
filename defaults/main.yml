@@ -19,8 +19,8 @@ sshd_keep_deprecated: false
 # for all groups. The allow/deny directives are processed in the following
 # order: DenyUsers, AllowUsers, DenyGroups, and finally AllowGroups.
 sshd_allow_groups: []
-  # - 'adm'
-  # - 'ssh_users'
+# - 'adm'
+# - 'ssh_users'
 
 # This keyword can be followed by a list of user name patterns, separated by
 # spaces. If specified, login is allowed only for user names that match one of
@@ -32,8 +32,8 @@ sshd_allow_groups: []
 # The allow/deny directives are processed in the following order: DenyUsers,
 # AllowUsers, DenyGroups, and finally AllowGroups.
 sshd_allow_users: []
-  # - 'vagrant'
-  # - 'admin'
+# - 'vagrant'
+# - 'admin'
 
 # Specifies whether TCP forwarding is permitted. The available options are
 # yes (the default) or all to allow TCP forwarding, no to prevent all TCP
@@ -72,7 +72,7 @@ sshd_config: true
 # all groups. The allow/deny directives are processed in the following
 # order: DenyUsers, AllowUsers, DenyGroups, and finally AllowGroups.
 sshd_deny_groups: []
-  # - 'badguys'
+# - 'badguys'
 
 # This keyword can be followed by a list of user name patterns, separated by
 # spaces. Login is disallowed for user names that match one of the patterns.
@@ -84,7 +84,7 @@ sshd_deny_groups: []
 # directives are processed in the following order: DenyUsers, AllowUsers,
 # DenyGroups, and finally AllowGroups.
 sshd_deny_users: []
-  # - 'baduser'
+# - 'baduser'
 
 # Specifies whether user authentication based on GSSAPI is allowed.
 # The default is no.

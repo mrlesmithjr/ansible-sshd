@@ -285,6 +285,11 @@ Example Playbook
   tasks:
 ```
 
+Testing
+----------------
+
+You can start local tests easy via ``./.test.sh``
+
 License
 -------
 
