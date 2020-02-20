@@ -1,10 +1,8 @@
 ---
 galaxy_info:
   author: Larry Smith Jr.
-  description: An [Ansible] role to install/configure [SSHD]
-
-  license: GPLv2
-
+  description: Ansible role to install/configure SSHD
+  license: MIT
   min_ansible_version: 1.2
 
   platforms:
@@ -25,6 +23,5 @@ galaxy_info:
         - all
 
   galaxy_tags:
-
     - system
 dependencies: []
