@@ -5,25 +5,89 @@ driver:
   name: docker
 lint:
   name: yamllint
-  options:
-    config-file: molecule/default/yaml-lint.yml
 platforms:
-  - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest"
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
+  - name: centos7
+    image: jrei/systemd-centos:7
+    privileged: true
+    command: /usr/sbin/init
+    tmpfs:
+      - /run
+      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  # - name: centos8
+  #   image: jrei/systemd-centos:8
+  #   privileged: true
+  #   command: /usr/sbin/init
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  # - name: debian8
+  #   image: jrei/systemd-debian:8
+  #   privileged: true
+  #   command: /lib/systemd/systemd
+  #   tmpfs:
+  #     - /run
+  #     - /tmp
+  #   volumes:
+  #     - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: debian9
+    image: jrei/systemd-debian:9
     privileged: true
-    pre_build_image: true
+    command: /lib/systemd/systemd
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: debian10
+    image: jrei/systemd-debian:10
+    privileged: true
+    command: /lib/systemd/systemd
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: fedora
+    image: jrei/systemd-fedora
+    privileged: true
+    command: /usr/sbin/init
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: ubuntu1604
+    image: jrei/systemd-ubuntu:16.04
+    privileged: true
+    command: /lib/systemd/systemd
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  - name: ubuntu1804
+    image: jrei/systemd-ubuntu:18.04
+    privileged: true
+    command: /lib/systemd/systemd
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
   lint:
     name: ansible-lint
   playbooks:
-    converge: ${MOLECULE_PLAYBOOK:-playbook.yml}
-scenario:
-  name: default
+    converge: ../shared/playbook.yml
 verifier:
   name: testinfra
+  directory: ../shared/tests
   lint:
     name: flake8
+  additional_files_or_dirs:
+    - ../shared/*

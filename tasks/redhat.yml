@@ -5,10 +5,16 @@
   dnf:
     name: "openssh-server"
     state: "present"
+  become: true
+  register: result
+  until: result is successful
   when: ansible_distribution == "Fedora"
 
 - name: redhat | Installing SSHD
   yum:
     name: "openssh-server"
     state: "present"
+  become: true
+  register: result
+  until: result is successful
   when: ansible_distribution != "Fedora"

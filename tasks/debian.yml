@@ -5,3 +5,6 @@
   apt:
     name: "openssh-server"
     state: "present"
+  become: true
+  register: result
+  until: result is successful

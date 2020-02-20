@@ -4,8 +4,10 @@
   service:
     name: "ssh"
     state: "restarted"
+  become: true
 
 - name: "restart sshd"
   service:
     name: "sshd"
     state: "restarted"
+  become: true
