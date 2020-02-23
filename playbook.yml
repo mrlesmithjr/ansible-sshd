@@ -1,5 +1,7 @@
 ---
 - name: Example Playbook
   hosts: all
-  roles:
-    - role: ansible-sshd
+  tasks:
+    - name: Include ansible-sshd
+      include_role:
+        name: ansible-sshd
