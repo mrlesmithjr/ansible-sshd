@@ -2,6 +2,9 @@
 galaxy_info:
   author: Larry Smith Jr.
   description: Ansible role to install/configure SSHD
+  role_name: sshd
+  namespace: mrlesmithjr
+
   license: MIT
   min_ansible_version: 1.2
 
